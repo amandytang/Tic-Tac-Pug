@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Itim|Shrikhand');
+
+
+body {
+  background-image: url("images/circles-light.png");
+  background-color: #f2f3f4;
+  margin: 0 auto;
+}
+
+#content {
+  margin: 0 auto;
+  width: 80%;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  font-family: 'Shrikhand', cursive;
+  font-size: 60px;
+  color: #33312c;
+}
+
+#board {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.row {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;            /* establish flex container to horizontally align the squares */
+  flex-direction: row;      /* default value, optional */
+  flex-wrap: nowrap;        /* default value, optional */
+  justify-content: center;
+}
+br
+{   content: "A" !important;    /* This block of code allows you to set the line-height of <br> */
+    display: block !important;
+    margin-bottom: 5px; !important;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  background-color: #edd07b;
+  margin-left: 5px;
+  display: inline-block;
+  border-radius: 25px;
+  position: relative;
+  -webkit-transition: background-color 0.25s ease-out;
+  -moz-transition: background-color 0.25s ease-out;
+  -o-transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out;
+}
+
+.square:hover {
+  background-color: #dedede;
+}
+
+.square img {
+  visibility: hidden;
+  width: 66.6666%;
+  padding-top: 10%;
+  position:absolute;
+  bottom: 10%;
+  left: 15%;
+}
