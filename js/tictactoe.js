@@ -4,13 +4,25 @@ let outcome = ["_", "_", "_",
                "_", "_", "_",
                "_", "_", "_", ]; // Empty array to store moves later
 
-// you want a function that loops through the outcome array, telling you where all the x's are i.e. print the index each time an x is found then compare that to the winningcombo array
 
-let checkForWin = function () {
-  let win = []; // but remember two arrays are never equal - change to string first
+// We want a function that loops through the outcome array, telling us where all the X's are
+let checkForXWin = function () {
+  let indices = [];
+  let index;
+
   for (let i = 0; i < outcome.length; i++) {
-    outcome.indexOf("X")
-//    push into win array
+    outcome.filter (function (outcome, index) { // This retrieves the index of every occurrence of "X"
+     if (outcome == "X") {
+       indices.push(index);
+     }
+  });
+//  console.log(indices.toString());
+
+//  if (indices.toString() === one of the indices of winningcombo.toString) we have a win
+//we need another loop, just not sure if it goes here 
+
+    return;
+
   }
 }
 
@@ -34,6 +46,10 @@ let winningCombo = [
  // how would you compare outcome array with winningCombo array? i.e. if outcome[]
 
 $('.square').on('click', function () {
+
+  if (turns === 9) {
+    return;
+  }
 
   if (turns === 9) {
     return;
@@ -70,6 +86,9 @@ $('.square').on('click', function () {
 
     $(this).find('img').css('visibility', 'visible');
     $(this).find('img').attr('src', './css/images/donutpug.png');
+
+    checkForXWin();
+
     return turns;
   }
 
@@ -81,6 +100,9 @@ $('.square').on('click', function () {
 
     $(this).find('img').css('visibility', 'visible');
     $(this).find('img').attr('src', './css/images/unipug.png');
+
+//    checkForOWin();
+
     return turns;
     }
 
@@ -94,9 +116,10 @@ $('h1').funText((40, ['#7dbcdb', '#edd07b', '#ba5b62']));
 }); // DOM readiness
 
 
-
+// TODO: prevent player from clicking a square that's already taken (check if img already has a pug src)
 // TODO: Make hover for h1 tag - from toe to pug
 // TODO: Marquee success message or pug gif
 // TODO: sound of barking
+// TODO: add alt text e.g. alt="Pug in a donut costume"
 
-//5h as of 10.30 saturday
+//6h as of 11.30 saturday
