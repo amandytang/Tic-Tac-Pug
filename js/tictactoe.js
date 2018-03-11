@@ -37,7 +37,21 @@ let checkForXWin = function () {
       && indicesX.indexOf(winningCombo[j][1]) > -1
       && indicesX.indexOf(winningCombo[j][2]) > -1) {
         gameWon = true;
+
+        if (gameWon === true) {
+
+          let imageURL = "./css/images/donutpug.png";
+
+          swal({
+            title: "You won!",
+            text: "Donuts are awesome.",
+            icon: imageURL,
+            button: "Aww yiss!",
+          });
+
+        }
         return;
+
         }
     }
   }
@@ -60,12 +74,28 @@ let checkForOWin = function () {
       && indicesO.indexOf(winningCombo[j][1]) > -1
       && indicesO.indexOf(winningCombo[j][2]) > -1) {
         gameWon = true;
+
+        if (gameWon === true) {
+
+          imageURL = "./css/images/unipug.png";
+
+          swal({
+            title: "You won!",
+            text: "Of course you did. You're a unicorn.",
+            icon: imageURL,
+            button: "Woohoo!",
+          });
+
+        }
         return;
         }
       }
     }
 return;
 }
+
+
+
 
 
 $('.square').on('click', function () {
@@ -79,7 +109,14 @@ $('.square').on('click', function () {
   }
 
   if (turns === 8) { // It's automatically a draw if it's turn 8 and the game hasn't been won yet
-    console.log('turn 8');
+    imageURL = "./css/images/draw.png";
+
+    swal({
+      title: "It's a draw.",
+      text: "Everyone's happy!",
+      icon: imageURL,
+      button: "I love pugs.",
+    });
   }
 
   if ($(this).find('img').attr('src') === './css/images/donutpug.png') { // Prevent changing existing move
@@ -95,7 +132,7 @@ $('.square').on('click', function () {
     turns = turns + 1;
 
     $(this).find('img').css('visibility', 'visible');
-    $(this).find('img').attr('src', './css/images/donutpug.png');
+    $(this).find('img').attr( {src: './css/images/donutpug.png', alt: 'Pug in a donut costume' } );
     return turns;
   }
 
@@ -104,7 +141,7 @@ $('.square').on('click', function () {
     turns = turns + 1;
 
     $(this).find('img').css('visibility', 'visible');
-    $(this).find('img').attr('src', './css/images/unipug.png');
+    $(this).find('img').attr( {src: './css/images/unipug.png', alt: 'Pug in a unicorn costume' } );
     return turns;
   }
 
@@ -113,7 +150,7 @@ $('.square').on('click', function () {
     turns = turns + 1;
 
     $(this).find('img').css('visibility', 'visible');
-    $(this).find('img').attr('src', './css/images/donutpug.png');
+    $(this).find('img').attr( {src: './css/images/donutpug.png', alt: 'Pug in a donut costume' } );
 
     checkForXWin();
 
@@ -125,7 +162,7 @@ $('.square').on('click', function () {
     turns = turns + 1;
 
     $(this).find('img').css('visibility', 'visible');
-    $(this).find('img').attr('src', './css/images/unipug.png');
+    $(this).find('img').attr( {src: './css/images/unipug.png', alt: 'Pug in a unicorn costume' } );
 
     checkForOWin();
 
@@ -138,12 +175,22 @@ $('.square').on('click', function () {
 
 $('h1').funText((40, ['#7dbcdb', '#edd07b', '#ba5b62']));
 
+
+$('span').mouseover(function() {
+
+  if ($('span').text() === 'Pug') {
+    return;
+  }
+
+  $('span').animate({'opacity': 0}, 300, function () {  // To ease in and out of text replacement
+      $('span').text('Pug');
+  }).animate({'opacity': 1}, 300);
+})
+
+
+
 }); // DOM readiness
 
 
-// TODO: Make hover for h1 tag - from toe to pug
-// TODO: Marquee success message or pug gif
-// TODO: sound of barking
-// TODO: add alt text e.g. alt="Pug in a donut costume"
 
-//7.5h as of 1pm on sunday
+//8.5h as of 4pm on sunday

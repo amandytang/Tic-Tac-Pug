@@ -66,3 +66,7 @@ br
   bottom: 10%;
   left: 15%;
 }
+
+.swal-icon img {
+  width: 40%;
+}
