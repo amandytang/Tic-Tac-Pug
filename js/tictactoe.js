@@ -42,22 +42,24 @@ let checkForXWin = function () {
 
           let imageURL = "./css/images/donutpug.png";
 
-          swal({
+          swal({  // jQuery plugin to display success message
             title: "You won!",
             text: "Donuts are awesome.",
             icon: imageURL,
-            button: "Aww yiss!",
+            buttons: { cancel: "Aw yisss!", reset: { text: "Play again",}},
           });
+
+          $('.swal-button--reset').on('click', function () { // Reload page if "Play again" button clicked
+            location.reload(true);
+          })
 
         }
         return;
-
         }
     }
   }
 return;
 }
-
 
 let checkForOWin = function () {
   let indicesO = [];
@@ -83,8 +85,12 @@ let checkForOWin = function () {
             title: "You won!",
             text: "Of course you did. You're a unicorn.",
             icon: imageURL,
-            button: "Woohoo!",
+            buttons: { cancel: "Woohoo!", reset: { text: "Play again",}},
           });
+
+          $('.swal-button--reset').on('click', function () { // Reload page if "Play again" button clicked
+            location.reload(true);
+          })
 
         }
         return;
@@ -93,7 +99,6 @@ let checkForOWin = function () {
     }
 return;
 }
-
 
 
 
@@ -115,7 +120,11 @@ $('.square').on('click', function () {
       title: "It's a draw.",
       text: "Everyone's happy!",
       icon: imageURL,
-      button: "I love pugs.",
+      buttons: { cancel: "I love pugs", reset: { text: "Play again",}},
+    });
+
+    $('.swal-button--reset').on('click', function () { // Reload page if "Play again" button clicked
+      location.reload(true);
     });
   }
 
@@ -177,20 +186,14 @@ $('h1').funText((40, ['#7dbcdb', '#edd07b', '#ba5b62']));
 
 
 $('span').mouseover(function() {
-
   if ($('span').text() === 'Pug') {
     return;
   }
 
   $('span').animate({'opacity': 0}, 300, function () {  // To ease in and out of text replacement
-      $('span').text('Pug');
+    $('span').text('Pug');
   }).animate({'opacity': 1}, 300);
 })
 
 
-
-}); // DOM readiness
-
-
-
-//8.5h as of 4pm on sunday
+});
