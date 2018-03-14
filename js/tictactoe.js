@@ -9,7 +9,7 @@ setTimeout( function () {
 
 let outcome = ["_", "_", "_",
                "_", "_", "_",
-               "_", "_", "_", ]; // Empty array to store moves later
+               "_", "_", "_", ];  
 
 let gameWon = false;
 
@@ -49,7 +49,7 @@ let checkForXWin = function () {
 
           let imageURL = "./css/images/donutpug.png";
 
-          swal({  // jQuery plugin to display success message
+          swal({  // To display success message
             title: "You won!",
             text: "Donuts are awesome.",
             icon: imageURL,
@@ -95,7 +95,7 @@ let checkForOWin = function () {
             buttons: { cancel: "Woohoo!", reset: { text: "Play again",}},
           });
 
-          $('.swal-button--reset').on('click', function () { // Reload page if "Play again" button clicked
+          $('.swal-button--reset').on('click', function () {
             location.reload(true);
           })
 
@@ -121,7 +121,7 @@ $('.square').on('click', function () {
     return;
   }
 
-  if (turns === 8) { // It's automatically a draw if it's turn 8 and the game hasn't been won yet
+  if (turns === 8) { // Automatically a draw if it's turn 8 and the game hasn't been won yet
     $(this).addClass('animated flipInY');
     imageURL = "./css/images/draw.png";
 
