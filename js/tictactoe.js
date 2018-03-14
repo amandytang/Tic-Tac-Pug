@@ -1,5 +1,12 @@
 $(document).ready( function () {
 
+$('.square').addClass('animated flipInY');
+
+setTimeout( function () {
+  $('.square').removeClass('animated flipInY');
+  }, 900);
+
+
 let outcome = ["_", "_", "_",
                "_", "_", "_",
                "_", "_", "_", ]; // Empty array to store moves later
@@ -102,8 +109,9 @@ return;
 
 
 
-
 $('.square').on('click', function () {
+
+  $(this).addClass('noHover');
 
   if (turns === 9) {
     return;
@@ -114,6 +122,7 @@ $('.square').on('click', function () {
   }
 
   if (turns === 8) { // It's automatically a draw if it's turn 8 and the game hasn't been won yet
+    $(this).addClass('animated flipInY');
     imageURL = "./css/images/draw.png";
 
     swal({
@@ -129,6 +138,7 @@ $('.square').on('click', function () {
   }
 
   if ($(this).find('img').attr('src') === './css/images/donutpug.png') { // Prevent changing existing move
+
     return;
   }
 
@@ -142,6 +152,7 @@ $('.square').on('click', function () {
 
     $(this).find('img').css('visibility', 'visible');
     $(this).find('img').attr( {src: './css/images/donutpug.png', alt: 'Pug in a donut costume' } );
+    $(this).addClass('animated flipInY');
     return turns;
   }
 
@@ -151,7 +162,7 @@ $('.square').on('click', function () {
 
     $(this).find('img').css('visibility', 'visible');
     $(this).find('img').attr( {src: './css/images/unipug.png', alt: 'Pug in a unicorn costume' } );
-    return turns;
+    $(this).addClass('animated flipInY');    return turns;
   }
 
   if (turns !== 0 && turns % 2 === 0) {
@@ -160,6 +171,7 @@ $('.square').on('click', function () {
 
     $(this).find('img').css('visibility', 'visible');
     $(this).find('img').attr( {src: './css/images/donutpug.png', alt: 'Pug in a donut costume' } );
+    $(this).addClass('animated flipInY');
 
     checkForXWin();
 
@@ -172,6 +184,7 @@ $('.square').on('click', function () {
 
     $(this).find('img').css('visibility', 'visible');
     $(this).find('img').attr( {src: './css/images/unipug.png', alt: 'Pug in a unicorn costume' } );
+    $(this).addClass('animated flipInY');
 
     checkForOWin();
 
@@ -179,7 +192,6 @@ $('.square').on('click', function () {
     }
 
 });
-
 
 
 $('h1').funText((40, ['#7dbcdb', '#edd07b', '#ba5b62']));
@@ -194,6 +206,5 @@ $('span').mouseover(function() {
     $('span').text('Pug');
   }).animate({'opacity': 1}, 300);
 })
-
 
 });

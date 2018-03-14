@@ -34,6 +34,7 @@ h1 {
   flex-wrap: nowrap;        /* default value, optional */
   justify-content: center;
 }
+
 br
 {   content: "A" !important;    /* This block of code allows you to set the line-height of <br> */
     display: block !important;
@@ -58,6 +59,10 @@ br
   background-color: #dedede;
 }
 
+.noHover {
+  pointer-events: none;
+}
+
 .square img {
   visibility: hidden;
   width: 66.6666%;
@@ -66,6 +71,7 @@ br
   bottom: 10%;
   left: 15%;
 }
+
 
 .swal-icon img {
   width: 40%;
