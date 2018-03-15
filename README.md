@@ -5,7 +5,7 @@
 
 <br/>**Tic Tac Pug** is a 2-player version of the classic Noughts & Crosses, but way more adorable.  
 
-Check out the [demo](https://amandytang.github.io/Tic-Tac-Pug/).
+Check out the [live version](https://amandytang.github.io/Tic-Tac-Pug/).
 
 ![Tic Tac Pug Screenshot](https://github.com/amandytang/Tic-Tac-Pug/blob/master/css/images/screenshot.png)
 <br/>
